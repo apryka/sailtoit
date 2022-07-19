@@ -32,7 +32,6 @@ const Metadata = ({ className, author, date, categories, options = DEFAULT_METAD
                 alt="Author Avatar"
               />
             )}
-            By{' '}
             <Link href={authorPathByName(author.name)}>
               <a rel="author">{author.name}</a>
             </Link>

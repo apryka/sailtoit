@@ -6,6 +6,8 @@ import { categoryPathBySlug } from 'lib/categories';
 
 import Section from 'components/Section';
 import Container from 'components/Container';
+import Pill from 'components/Pill';
+import WavyLine from 'components/WavyLine';
 
 import styles from './Footer.module.scss';
 
@@ -19,6 +21,7 @@ const Footer = () => {
 
   return (
     <footer className={styles.footer}>
+      <WavyLine />
       {hasMenu && (
         <Section className={styles.footerMenu}>
           <Container>
@@ -51,33 +54,18 @@ const Footer = () => {
                       <strong>Categories</strong>
                     </a>
                   </Link>
-                  <ul className={styles.footerMenuItems}>
+                  <ul className={styles.footerMenuPills}>
                     {categories.map((category) => {
                       const { id, slug, name } = category;
                       return (
                         <li key={id}>
-                          <Link href={categoryPathBySlug(slug)}>
-                            <a>{name}</a>
-                          </Link>
+                          <Pill slug={slug} name={name} />
                         </li>
                       );
                     })}
                   </ul>
                 </li>
               )}
-              <li>
-                <p className={styles.footerMenuTitle}>
-                  <strong>More</strong>
-                </p>
-                <ul className={styles.footerMenuItems}>
-                  <li>
-                    <a href="/feed.xml">RSS</a>
-                  </li>
-                  <li>
-                    <a href="/sitemap.xml">Sitemap</a>
-                  </li>
-                </ul>
-              </li>
             </ul>
           </Container>
         </Section>

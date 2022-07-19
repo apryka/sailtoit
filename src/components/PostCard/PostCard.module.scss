@@ -14,8 +14,10 @@
 
     &:hover {
       h3 {
-        color: $color-primary;
         text-decoration: underline;
+        text-decoration-style: wavy;
+        text-decoration-thickness: from-font;
+        text-underline-offset: 0.1em;
       }
     }
   }
@@ -35,8 +37,9 @@
 }
 
 .postCardTitle {
-  margin: 0 0 1em 0;
+  margin: 0 0 0.5em 0;
   font-size: 1.5em;
+  font-weight: 600;
 }
 
 .postCardContent {
@@ -56,4 +59,5 @@
 
 .postCardMetadata {
   margin: -0.8em -0.8em 0.4em;
+  font-size: 0.75em;
 }

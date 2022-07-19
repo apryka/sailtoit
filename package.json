@@ -1,9 +1,8 @@
 {
   "name": "next-wordpress-starter",
-  "homepage": "https://next-wordpress-starter.spacejelly.dev",
+  "homepage": "http://sailtoit.com",
   "version": "0.1.0",
   "license": "MIT",
-  "author": "Colby Fayock <hello@colbyfayock.com>",
   "scripts": {
     "build": "next build",
     "wpe-build": "npm run build",
@@ -54,9 +53,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/colbyfayock/next-wordpress-starter"
+    "url": "https://github.com/apryka/next-wordpress-starter"
   },
   "bugs": {
-    "url": "https://github.com/colbyfayock/next-wordpress-starter/issues"
+    "url": "https://github.com/apryka/next-wordpress-starter/issues"
   }
 }

@@ -2,7 +2,7 @@
 
 .footer {
   width: 100%;
-  border-top: 1px solid $color-gray-100;
+  // border-top: 1px solid $color-brand;
 }
 
 .footerMenu {
@@ -32,10 +32,41 @@
 
 .footerMenuTitle {
   display: inline-block;
-  color: $color-gray-800;
+  color: $color-white;
   text-decoration: none;
   margin-bottom: 1.4em;
   margin-top: 0;
+  position: relative;
+  // transition: opacity 200ms ease-in-out;
+
+  // @media (hover: hover) {
+  //   &:hover {
+  //     text-decoration: none;
+  //     opacity: 0.65;
+  //   }
+  // }
+  @media (hover: hover) {
+    &:hover {
+      color: $color-white;
+      text-decoration: none;
+
+      &::before {
+        position: absolute;
+        content: '<';
+        left: -1ch;
+        animation-duration: 150ms;
+        animation-name: fadeIn;
+      }
+
+      &::after {
+        position: absolute;
+        content: '>';
+        right: -1ch;
+        animation-duration: 150ms;
+        animation-name: fadeIn;
+      }
+    }
+  }
 }
 
 .footerMenuItems {
@@ -50,23 +81,26 @@
   a {
     display: block;
     overflow: hidden;
-    color: $color-gray-600;
+    color: $color-white;
     text-decoration: none;
     white-space: nowrap;
     text-overflow: ellipsis;
 
     @media (hover: hover) {
       &:hover {
-        color: $color-primary;
+        color: $color-white;
         text-decoration: underline;
+        text-decoration-style: wavy;
+        text-decoration-thickness: from-font;
+        text-underline-offset: 0.1em;
       }
     }
   }
 }
 
 .footerLegal {
-  color: $color-gray-400;
-  background-color: $color-gray-900;
+  color: $color-white;
+  background-color: $color-brand;
   padding: 0.8rem 0;
   margin: 0;
 
@@ -75,4 +109,10 @@
     text-align: center;
     margin: 0;
   }
+}
+
+.footerMenuPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }

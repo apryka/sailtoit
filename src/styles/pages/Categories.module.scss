@@ -24,8 +24,11 @@
 
     @media (hover: hover) {
       &:hover {
-        color: $color-primary;
+        color: $color-white;
         text-decoration: underline;
+        text-decoration-style: wavy;
+        text-decoration-thickness: from-font;
+        text-underline-offset: 0.1em;
       }
     }
   }

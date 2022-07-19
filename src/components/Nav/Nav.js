@@ -4,6 +4,7 @@ import { FaSearch } from 'react-icons/fa';
 
 import useSite from 'hooks/use-site';
 import useSearch, { SEARCH_STATE_LOADED } from 'hooks/use-search';
+import useIntersectionObserver from 'hooks/use-interesction-observer';
 import { postPathBySlug } from 'lib/posts';
 import { findMenuByLocation, MENU_LOCATION_NAVIGATION_DEFAULT } from 'lib/menus';
 
@@ -11,14 +12,18 @@ import Section from 'components/Section';
 
 import styles from './Nav.module.scss';
 import NavListItem from 'components/NavListItem';
+import Logo from 'components/Logo';
 
 const SEARCH_VISIBLE = 'visible';
 const SEARCH_HIDDEN = 'hidden';
 
 const Nav = () => {
   const formRef = useRef();
+  const navRef = useRef();
 
   const [searchVisibility, setSearchVisibility] = useState(SEARCH_HIDDEN);
+
+  const onScreen = useIntersectionObserver(navRef, { threshold: 1 });
 
   const { metadata = {}, menus } = useSite();
   const { title } = metadata;
@@ -177,11 +182,15 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className={styles.nav}>
+    <nav className={styles.nav} ref={navRef} data-sticky={onScreen}>
       <Section className={styles.navSection}>
         <p className={styles.navName}>
           <Link href="/">
-            <a>{title}</a>
+            <a>
+              <div className={styles.logoWrapper}>
+                <Logo alt={title} />
+              </div>
+            </a>
           </Link>
         </p>
         <ul className={styles.navMenu}>
@@ -189,7 +198,7 @@ const Nav = () => {
             return <NavListItem key={listItem.id} className={styles.navSubMenu} item={listItem} />;
           })}
         </ul>
-        <div className={styles.navSearch}>
+        {/* <div className={styles.navSearch}>
           {searchVisibility === SEARCH_HIDDEN && (
             <button onClick={handleOnToggleSearch} disabled={!searchIsLoaded}>
               <span className="sr-only">Toggle Search</span>
@@ -229,7 +238,7 @@ const Nav = () => {
               </div>
             </form>
           )}
-        </div>
+        </div> */}
       </Section>
     </nav>
   );

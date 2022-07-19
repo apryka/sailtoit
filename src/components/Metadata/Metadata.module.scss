@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  color: $color-gray-600;
+  color: $color-white;
   list-style: none;
   padding: 0;
   margin: 0 -0.8em;
@@ -13,6 +13,9 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
   }
 
   & > li {
@@ -28,7 +31,7 @@
     text-decoration: none;
 
     &:hover {
-      color: $color-primary;
+      // color: $color-primary;
       text-decoration: underline;
     }
   }
@@ -56,15 +59,20 @@
 .metadataCategories {
   li {
     display: inline-block;
+  }
 
-    &:after {
-      content: ", ";
-      margin-right: 0.4em;
-    }
+  a {
+    display: inline-block;
+    border: 1px solid currentColor;
+    border-radius: 6px;
+    padding: 0.25em 0.5em;
+    background-color: transparent;
+    transition: background-color 200ms ease-in-out;
 
-    &:last-child {
-      &:after {
-        content: none;
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        text-decoration: none;
       }
     }
   }

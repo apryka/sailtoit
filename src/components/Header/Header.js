@@ -5,7 +5,7 @@ import styles from './Header.module.scss';
 const Header = ({ children }) => {
   return (
     <header className={styles.header}>
-      <Container>{children}</Container>
+      <Container className={styles.headerContent}>{children}</Container>
     </header>
   );
 };
