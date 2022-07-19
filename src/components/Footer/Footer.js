@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import useSite from 'hooks/use-site';
 import { postPathBySlug } from 'lib/posts';
-import { categoryPathBySlug } from 'lib/categories';
+// import { categoryPathBySlug } from 'lib/categories';
 
 import Section from 'components/Section';
 import Container from 'components/Container';

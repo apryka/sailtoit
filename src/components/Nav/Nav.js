@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
-import { FaSearch } from 'react-icons/fa';
+// import { FaSearch } from 'react-icons/fa';
 
 import useSite from 'hooks/use-site';
-import useSearch, { SEARCH_STATE_LOADED } from 'hooks/use-search';
-import useIntersectionObserver from 'hooks/use-interesction-observer';
-import { postPathBySlug } from 'lib/posts';
+// import useSearch, { SEARCH_STATE_LOADED } from 'hooks/use-search';
+import useIntersectionObserver from 'hooks/use-intersection-observer';
+// import { postPathBySlug } from 'lib/posts';
 import { findMenuByLocation, MENU_LOCATION_NAVIGATION_DEFAULT } from 'lib/menus';
 
 import Section from 'components/Section';
@@ -14,7 +14,7 @@ import styles from './Nav.module.scss';
 import NavListItem from 'components/NavListItem';
 import Logo from 'components/Logo';
 
-const SEARCH_VISIBLE = 'visible';
+// const SEARCH_VISIBLE = 'visible';
 const SEARCH_HIDDEN = 'hidden';
 
 const Nav = () => {
@@ -33,11 +33,11 @@ const Nav = () => {
     MENU_LOCATION_NAVIGATION_DEFAULT,
   ]);
 
-  const { query, results, search, clearSearch, state } = useSearch({
-    maxResults: 5,
-  });
+  // const { query, results, search, clearSearch, state } = useSearch({
+  //   maxResults: 5,
+  // });
 
-  const searchIsLoaded = state === SEARCH_STATE_LOADED;
+  // const searchIsLoaded = state === SEARCH_STATE_LOADED;
 
   // When the search visibility changes, we want to add an event listener that allows us to
   // detect when someone clicks outside of the search box, allowing us to close the results
@@ -92,7 +92,7 @@ const Nav = () => {
   function handleOnDocumentClick(e) {
     if (!e.composedPath().includes(formRef.current)) {
       setSearchVisibility(SEARCH_HIDDEN);
-      clearSearch();
+      // clearSearch();
     }
   }
 
@@ -100,19 +100,19 @@ const Nav = () => {
    * handleOnSearch
    */
 
-  function handleOnSearch({ currentTarget }) {
-    search({
-      query: currentTarget.value,
-    });
-  }
+  // function handleOnSearch({ currentTarget }) {
+  //   search({
+  //     query: currentTarget.value,
+  //   });
+  // }
 
   /**
    * handleOnToggleSearch
    */
 
-  function handleOnToggleSearch() {
-    setSearchVisibility(SEARCH_VISIBLE);
-  }
+  // function handleOnToggleSearch() {
+  //   setSearchVisibility(SEARCH_VISIBLE);
+  // }
 
   /**
    * addResultsRoving
@@ -166,7 +166,7 @@ const Nav = () => {
 
   const escFunction = useCallback((event) => {
     if (event.keyCode === 27) {
-      clearSearch();
+      // clearSearch();
       setSearchVisibility(SEARCH_HIDDEN);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

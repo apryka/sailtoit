@@ -9,13 +9,14 @@ export default function useIntersectionObserver(ref, options) {
       setIsIntersecting(entry.intersectionRatio < 1);
     }, options);
 
-    if (ref?.current) {
+    const element = ref.current;
+    if (element) {
       observer.observe(ref.current);
     }
 
     return () => {
-      if (ref?.current) {
-        observer.unobserve(ref.current);
+      if (element) {
+        observer.unobserve(element);
       }
     };
   }, [options, ref]);
